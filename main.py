@@ -1,24 +1,8 @@
-import os
-import sys
+import error_check
 
-# error check
-def libraryError():
-  print("One or more libraries were not installed properly. Installing...")
-  os.system("pip install -r requirements.txt") # TODO: macOS and Linux support
 
-def errorCheck():
-  if os.system("auto-editor --version") == 1 or os.system("ffmpeg-normalize --version") == 1:
-    libraryError()
 
-  if len(sys.argv) < 2:
-    raise Exception("No arguments specified")
-
-def showVersions():
-  os.system("auto-editor --version")
-  os.system("ffmpeg-normalize --version")
-
-errorCheck()
-# showVersions()
+error_check.run()
 
 # take input path
 input_path = sys.argv[1]
